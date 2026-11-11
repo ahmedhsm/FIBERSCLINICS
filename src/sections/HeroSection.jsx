@@ -62,12 +62,12 @@ export default function HeroSection({ lang, onOpenBooking }) {
           {isAr ? (
             <>
               خبرة متقدمة ورعاية فردية دقيقة في عيادات <strong>FIBERS</strong> للعلاج الطبيعي والتأهيل الرياضي — حيث تعافيك وأداؤك الحركي أولويتنا القصوى.
-              أكثر من <strong>3,500 حالة تعافي ناجحة</strong> في فرعينا بالتجمع الخامس ومدينة الشروق.
+              أكثر من <strong>1,500 حالة تعافي ناجحة</strong> في فرعينا بالتجمع الخامس ومدينة الشروق.
             </>
           ) : (
             <>
               Experience lasting relief, athletic precision, and personalized care at <strong>FIBERS</strong> physiotherapy clinic — where your recovery is our priority.
-              Backed by <strong>3,500+ proven recoveries</strong> across our 2 Cairo clinics in New Cairo and El Shorouk.
+              Backed by <strong>1,500+ proven recoveries</strong> across our 2 Cairo clinics in New Cairo and El Shorouk.
             </>
           )}
         </p>
