@@ -134,8 +134,8 @@ export default function HeroSection({ lang, onOpenBooking }) {
           <div className="hero-mini-feature">
             <div className="mini-icon-number">03</div>
             <div>
-              <h4>{isAr ? 'التأهيل العصبي والبيوميكانيكا' : 'Neurological Physiotherapy'}</h4>
-              <p>{isAr ? 'إعادة التوازن الحركي، تصحيح السلسلة الحركية للجسم، وتحسين الأداء الرياضي' : 'Functional kinetic-chain balancing, posture, and motor control'}</p>
+              <h4>{isAr ? 'الإصابات الرياضية وإعادة التأهيل' : 'sport injury and rehabilitation'}</h4>
+              <p>{isAr ? 'تقييم وعلاج الإصابات الرياضية من خلال برامج تأهيل متخصصة ومبنية على أسس علمية، لمساعدة الرياضيين على التعافي والعودة الآمنة لممارسة الرياضة' : 'Specialized assessment and evidence-based rehabilitation programs to help athletes recover from injuries and safely return to sport.'}</p>
             </div>
           </div>
         </div>
