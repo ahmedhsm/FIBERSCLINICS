@@ -1741,14 +1741,38 @@ html[dir="rtl"] .floating-whatsapp-tooltip {
   background: #0d1527;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 26px;
-  padding: 32px 30px;
+  padding: 28px 28px 22px;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 102, 255, 0.12);
   position: relative;
   display: flex;
   flex-direction: column;
   animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   max-height: 90vh;
+  max-height: 90dvh;
+  overflow: hidden;
+}
+
+.modal-body-content {
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-right: 4px;
+  padding-left: 4px;
+  margin-bottom: 6px;
+}
+
+.modal-body-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.modal-body-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-body-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 102, 255, 0.35);
+  border-radius: 4px;
 }
 
 .modal-header {
@@ -2340,7 +2364,7 @@ html[dir="rtl"] .floating-whatsapp-tooltip {
     grid-template-columns: 1fr;
   }
   .time-slots-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -3432,27 +3456,129 @@ html[dir="rtl"] .floating-whatsapp-tooltip {
     font-size: 0.88rem;
   }
 
-  /* Modal on Mobile */
+  /* Modal on Mobile - Bottom Sheet Pattern */
   .modal-backdrop {
-    padding: 10px;
+    padding: 0;
     align-items: flex-end;
   }
   .booking-modal-card {
-    padding: 22px 16px;
-    max-height: 92vh;
-    border-radius: 20px 20px 0 0;
+    max-width: 100%;
+    max-height: 85dvh;
+    max-height: 85vh;
+    border-radius: 22px 22px 0 0;
+    padding: 16px 16px calc(14px + env(safe-area-inset-bottom, 10px));
+    border-bottom: none;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.75);
+  }
+  .modal-header {
+    margin-bottom: 8px;
+    flex-shrink: 0;
+  }
+  .modal-logo-badge {
+    width: 38px;
+    height: 38px;
   }
   .modal-step-title {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
+    line-height: 1.3;
   }
-  .modal-nav-actions {
-    flex-direction: column-reverse;
+  .step-tag {
+    font-size: 0.68rem;
+    letter-spacing: 1px;
+  }
+  .modal-close-btn {
+    width: 32px;
+    height: 32px;
+  }
+  .modal-progress-bar {
+    margin-bottom: 12px;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .progress-step-pill {
+    height: 3px;
+  }
+  .modal-body-content {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-right: 2px;
+    padding-left: 2px;
+    margin-bottom: 6px;
+  }
+  .step-desc {
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+    line-height: 1.45;
+  }
+  .form-group {
+    margin-bottom: 10px;
+  }
+  .form-label {
+    font-size: 0.8rem;
+    gap: 6px;
+    margin-bottom: 5px;
+  }
+  .form-input {
+    padding: 9px 12px;
+    font-size: 0.88rem;
+    border-radius: var(--radius-sm);
+  }
+  .time-slots-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 6px;
+  }
+  .time-slot-pill {
+    padding: 8px 4px;
+    font-size: 0.78rem;
+    border-radius: 8px;
+    letter-spacing: -0.2px;
+  }
+  .patient-inputs-row {
+    grid-template-columns: 1fr;
     gap: 8px;
   }
-  .btn-modal-next,
+  .modal-footer-controls {
+    flex-shrink: 0;
+    padding-top: 10px;
+    margin-top: auto;
+  }
   .btn-modal-prev {
-    width: 100%;
-    justify-content: center;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+  .btn-modal-next {
+    padding: 9px 22px;
+    font-size: 0.88rem;
+  }
+  .confirm-icon-circle {
+    width: 52px;
+    height: 52px;
+    margin: 4px auto 10px;
+  }
+  .confirm-subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+  }
+  .confirm-brand-header {
+    padding: 8px 12px;
+    margin-bottom: 4px;
+  }
+  .confirm-brand-badge {
+    width: 36px;
+    height: 36px;
+  }
+  .confirm-brand-title {
+    font-size: 0.88rem;
+  }
+  .confirm-item {
+    padding: 8px 12px;
+    gap: 12px;
+  }
+  .btn-confirm-whatsapp {
+    padding: 12px 18px;
+    font-size: 0.92rem;
   }
 }
 
