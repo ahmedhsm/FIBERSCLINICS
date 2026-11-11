@@ -203,7 +203,7 @@ export const clinicData = {
   ],
 
   stats: [
-    { value: "3,500+", labelAr: "رياضي ومريض تم علاجهم", labelEn: "Patients & Athletes Treated" },
+    { value: "1,500+", labelAr: "رياضي ومريض تم علاجهم", labelEn: "Patients & Athletes Treated" },
     { value: "2", labelAr: "فرعان مجهزان (التجمع والشروق)", labelEn: "Branches (New Cairo & El Shorouk)" },
     { value: "98%", labelAr: "نسبة الرضا والتعافي التام", labelEn: "Recovery & Satisfaction Rate" },
     { value: "15+", labelAr: "طبيب ومعالج معتمد دولياً", labelEn: "Specialized Physical Therapists" }
