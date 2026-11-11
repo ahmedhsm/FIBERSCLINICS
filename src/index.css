@@ -2117,6 +2117,153 @@ html[dir="rtl"] .floating-whatsapp-tooltip {
   margin-bottom: 22px;
 }
 
+/* Step 4: No-Swipe Full Review Experience */
+.booking-modal-card.step-4-active {
+  overflow: hidden !important;
+}
+
+.booking-modal-card.step-4-active .modal-body-content {
+  overflow: hidden !important;
+  overscroll-behavior: none !important;
+  touch-action: pan-x pinch-zoom;
+}
+
+.no-swipe-review {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 2px 0;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.review-cell {
+  background: rgba(17, 26, 46, 0.75);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.review-cell-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 102, 255, 0.12);
+  color: var(--accent-emerald);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.review-cell-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.review-cell-label {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.review-cell-val {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.review-patient-strip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.patient-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 8px;
+  background: rgba(0, 102, 255, 0.08);
+  border: 1px solid rgba(0, 102, 255, 0.2);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.review-notes-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.review-notes-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.review-notes-input {
+  width: 100%;
+  padding: 8px 12px;
+  background: rgba(17, 26, 46, 0.7);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  font-family: inherit;
+  transition: border-color var(--transition-fast);
+}
+
+.review-notes-input:focus {
+  outline: none;
+  border-color: var(--accent-emerald);
+  box-shadow: 0 0 8px rgba(0, 102, 255, 0.25);
+}
+
+.btn-review-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 6px 0;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  transition: color var(--transition-fast);
+  cursor: pointer;
+}
+
+.btn-review-back:hover {
+  color: #FFFFFF;
+}
+
 .confirm-details-card {
   display: flex;
   flex-direction: column;
@@ -3552,33 +3699,58 @@ html[dir="rtl"] .floating-whatsapp-tooltip {
     padding: 9px 22px;
     font-size: 0.88rem;
   }
-  .confirm-icon-circle {
-    width: 52px;
-    height: 52px;
-    margin: 4px auto 10px;
+  /* Step 4 No-Swipe Lock on Mobile */
+  .booking-modal-card.step-4-active {
+    overflow: hidden !important;
   }
-  .confirm-subtitle {
-    font-size: 0.85rem;
-    margin-bottom: 12px;
+  .booking-modal-card.step-4-active .modal-body-content {
+    overflow: hidden !important;
+    overscroll-behavior: none !important;
+    touch-action: none;
+    padding-bottom: 2px;
   }
-  .confirm-brand-header {
-    padding: 8px 12px;
-    margin-bottom: 4px;
+  .no-swipe-review {
+    gap: 8px;
+    padding: 0;
   }
-  .confirm-brand-badge {
-    width: 36px;
-    height: 36px;
+  .review-grid {
+    gap: 6px;
   }
-  .confirm-brand-title {
-    font-size: 0.88rem;
+  .review-cell {
+    padding: 7px 8px;
+    gap: 6px;
   }
-  .confirm-item {
-    padding: 8px 12px;
-    gap: 12px;
+  .review-cell-icon {
+    width: 28px;
+    height: 28px;
+  }
+  .review-cell-label {
+    font-size: 0.62rem;
+  }
+  .review-cell-val {
+    font-size: 0.76rem;
+  }
+  .patient-chip {
+    font-size: 0.72rem;
+    padding: 3px 6px;
+  }
+  .review-notes-wrap {
+    gap: 3px;
+  }
+  .review-notes-label {
+    font-size: 0.72rem;
+  }
+  .review-notes-input {
+    padding: 7px 10px;
+    font-size: 0.8rem;
   }
   .btn-confirm-whatsapp {
-    padding: 12px 18px;
-    font-size: 0.92rem;
+    padding: 11px 16px;
+    font-size: 0.9rem;
+  }
+  .btn-review-back {
+    font-size: 0.75rem;
+    padding: 4px 0;
   }
 }
 

@@ -87,7 +87,7 @@ export default function WhatsAppCTA({
       {isOpen && (
         <div className="modal-backdrop" onClick={handleClose}>
           <div 
-            className="booking-modal-card" 
+            className={`booking-modal-card ${step === 4 ? 'step-4-active' : ''}`} 
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
@@ -267,129 +267,134 @@ export default function WhatsAppCTA({
                 </div>
               )}
 
-              {/* STEP 4: REVIEW & CONFIRM VIA WHATSAPP (MATCHING DOCS MOCKUP) */}
+              {/* STEP 4: REVIEW & CONFIRM VIA WHATSAPP (NO SWIPE - FULL VIEW) */}
               {step === 4 && (
-                <div className="step-content step-confirm">
-                  <div className="confirm-icon-circle">
-                    <Check size={32} className="confirm-check-svg" />
-                  </div>
-                  
-                  <p className="confirm-subtitle">
-                    {isAr ? 'تفاصيل موعد جلستك في فايبرز' : 'Your session details'}
-                  </p>
-
-                  <div className="confirm-details-card">
-                    <div className="confirm-brand-header">
-                      <img src={clinicLogoBadge} alt="FIBERS" className="confirm-brand-badge" />
-                      <div>
-                        <h4 className="confirm-brand-title">FIBERS PHYSIOTHERAPY CLINIC</h4>
-                        <span className="confirm-brand-sub">{isAr ? selectedBranchObj.nameAr : selectedBranchObj.nameEn}</span>
-                      </div>
-                    </div>
-
+                <div className="step-content step-confirm no-swipe-review">
+                  {/* Compact 2x2 Review Grid */}
+                  <div className="review-grid">
                     {/* BRANCH */}
-                    <div className="confirm-item">
-                      <div className="confirm-item-icon">
-                        <MapPin size={20} />
+                    <div className="review-cell" title={isAr ? selectedBranchObj.nameAr : selectedBranchObj.nameEn}>
+                      <div className="review-cell-icon">
+                        <MapPin size={16} />
                       </div>
-                      <div className="confirm-item-text">
-                        <span className="confirm-label">
-                          {isAr ? 'الفرع' : 'BRANCH'}
-                        </span>
-                        <strong className="confirm-val">
+                      <div className="review-cell-info">
+                        <span className="review-cell-label">{isAr ? 'الفرع' : 'BRANCH'}</span>
+                        <strong className="review-cell-val">
                           {isAr ? selectedBranchObj.nameAr : selectedBranchObj.nameEn}
                         </strong>
                       </div>
                     </div>
 
                     {/* SERVICE */}
-                    <div className="confirm-item">
-                      <div className="confirm-item-icon">
-                        <Sparkles size={20} />
+                    <div className="review-cell" title={isAr ? selectedServiceObj.titleAr : selectedServiceObj.titleEn}>
+                      <div className="review-cell-icon">
+                        <Sparkles size={16} />
                       </div>
-                      <div className="confirm-item-text">
-                        <span className="confirm-label">
-                          {isAr ? 'الخدمة' : 'SERVICE'}
-                        </span>
-                        <strong className="confirm-val">
+                      <div className="review-cell-info">
+                        <span className="review-cell-label">{isAr ? 'الخدمة' : 'SERVICE'}</span>
+                        <strong className="review-cell-val">
                           {isAr ? selectedServiceObj.titleAr : selectedServiceObj.titleEn}
                         </strong>
                       </div>
                     </div>
 
                     {/* DATE */}
-                    <div className="confirm-item">
-                      <div className="confirm-item-icon">
-                        <Calendar size={20} />
+                    <div className="review-cell" title={formatDate(date, lang)}>
+                      <div className="review-cell-icon">
+                        <Calendar size={16} />
                       </div>
-                      <div className="confirm-item-text">
-                        <span className="confirm-label">
-                          {isAr ? 'التاريخ' : 'DATE'}
-                        </span>
-                        <strong className="confirm-val">
+                      <div className="review-cell-info">
+                        <span className="review-cell-label">{isAr ? 'التاريخ' : 'DATE'}</span>
+                        <strong className="review-cell-val">
                           {formatDate(date, lang)}
                         </strong>
                       </div>
                     </div>
 
                     {/* TIME */}
-                    <div className="confirm-item">
-                      <div className="confirm-item-icon">
-                        <Clock size={20} />
+                    <div className="review-cell" title={time}>
+                      <div className="review-cell-icon">
+                        <Clock size={16} />
                       </div>
-                      <div className="confirm-item-text">
-                        <span className="confirm-label">
-                          {isAr ? 'الوقت' : 'TIME'}
-                        </span>
-                        <strong className="confirm-val">
+                      <div className="review-cell-info">
+                        <span className="review-cell-label">{isAr ? 'الوقت' : 'TIME'}</span>
+                        <strong className="review-cell-val">
                           {time}
                         </strong>
                       </div>
                     </div>
                   </div>
 
-                  {/* Notes / Complaint (Optional) */}
-                  <div className="form-group notes-group">
-                    <label className="form-label">
-                      <FileText size={16} />
-                      <span>{isAr ? 'هل لديك أي شكوى أو تشخيص سابق؟ (اختياري)' : 'Any notes or previous diagnosis? (Optional)'}</span>
+                  {/* Patient Info Strip if provided */}
+                  {(patientName || patientPhone) && (
+                    <div className="review-patient-strip">
+                      {patientName && (
+                        <span className="patient-chip">
+                          <User size={13} />
+                          <span>{patientName}</span>
+                        </span>
+                      )}
+                      {patientPhone && (
+                        <span className="patient-chip">
+                          <Phone size={13} />
+                          <span>{patientPhone}</span>
+                        </span>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Compact Single-line Notes Input */}
+                  <div className="review-notes-wrap">
+                    <label className="review-notes-label">
+                      <FileText size={14} />
+                      <span>{isAr ? 'ملاحظة أو شكوى طبية (اختياري):' : 'Notes / condition description (Optional):'}</span>
                     </label>
-                    <textarea 
-                      rows={2}
+                    <input 
+                      type="text"
                       value={notes}
                       onChange={(e) => setNotes(e.target.value)}
                       placeholder={isAr ? 'مثال: ألم أسفل الظهر مستمر منذ أسبوع...' : 'e.g. Lower back pain for a week...'}
-                      className="form-textarea"
+                      className="review-notes-input"
                     />
                   </div>
 
-                  {/* Final WhatsApp Button (Green styled matching mockup) */}
+                  {/* Final WhatsApp Button */}
                   <a
                     href={confirmWhatsAppUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-confirm-whatsapp"
                   >
-                    <MessageCircle size={22} className="btn-wa-icon" />
+                    <MessageCircle size={20} className="btn-wa-icon" />
                     <span>{isAr ? 'تأكيد الحجز عبر واتساب' : 'Confirm via WhatsApp'}</span>
                   </a>
+
+                  {/* Back / Edit Link */}
+                  <button 
+                    type="button"
+                    onClick={() => setStep(3)}
+                    className="btn-review-back"
+                  >
+                    <PrevArrow size={14} />
+                    <span>{isAr ? 'تعديل بيانات الحجز' : 'Edit Booking Details'}</span>
+                  </button>
                 </div>
               )}
             </div>
 
-            {/* Modal Footer Controls */}
-            <div className="modal-footer-controls">
-              {step > 1 && (
-                <button 
-                  onClick={() => setStep(step - 1)}
-                  className="btn-modal-prev"
-                >
-                  <PrevArrow size={18} />
-                  <span>{isAr ? 'السابق' : 'Back'}</span>
-                </button>
-              )}
+            {/* Modal Footer Controls (Step 1 to 3 only; Step 4 has its own dedicated actions) */}
+            {step < 4 && (
+              <div className="modal-footer-controls">
+                {step > 1 && (
+                  <button 
+                    onClick={() => setStep(step - 1)}
+                    className="btn-modal-prev"
+                  >
+                    <PrevArrow size={18} />
+                    <span>{isAr ? 'السابق' : 'Back'}</span>
+                  </button>
+                )}
 
-              {step < 4 && (
                 <button 
                   onClick={() => setStep(step + 1)}
                   className="btn-modal-next"
@@ -397,8 +402,8 @@ export default function WhatsAppCTA({
                   <span>{isAr ? 'المتابعة' : 'Next'}</span>
                   <NextArrow size={18} />
                 </button>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </div>
       )}
