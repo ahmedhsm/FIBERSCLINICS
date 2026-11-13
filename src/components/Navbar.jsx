@@ -41,7 +41,7 @@ export default function Navbar({ lang, setLang, onOpenBooking }) {
     { href: '#why-trust', labelAr: 'لماذا فايبرز؟', labelEn: 'Why FIBERS' },
     { href: '#services', labelAr: 'الخدمات العلاجية', labelEn: 'Services' },
     { href: '#spine-health', labelAr: 'سلسلة العمود الفقري', labelEn: 'Spine Health' },
-    { href: '#branches', labelAr: 'الفروع (التجمع والشروق)', labelEn: 'Branches' },
+    { href: '#branches', labelAr: 'مقر العيادة (التجمع)', labelEn: 'Location' },
     { href: '#contact', labelAr: 'تواصل معنا', labelEn: 'Contact' }
   ];
 
@@ -209,11 +209,7 @@ export default function Navbar({ lang, setLang, onOpenBooking }) {
             <div className="mobile-branch-quickinfo">
               <div className="mobile-branch-row">
                 <MapPin size={15} />
-                <span>{isAr ? 'التجمع: Platinum Club (أمام ملاعب البادل)' : 'New Cairo: Platinum Club (Opp. Padel Courts)'}</span>
-              </div>
-              <div className="mobile-branch-row">
-                <MapPin size={15} />
-                <span>{isAr ? 'الشروق: داخل Popeyes Gym (بجانب سعودي)' : 'El Shorouk: Inside Popeyes Gym (next to Seoudi)'}</span>
+                <span>{isAr ? 'التجمع الخامس: Platinum Club (أمام ملاعب البادل)' : 'New Cairo: Platinum Club (Opp. Padel Courts)'}</span>
               </div>
             </div>
           </div>

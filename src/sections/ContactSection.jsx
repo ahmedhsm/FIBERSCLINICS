@@ -27,21 +27,21 @@ export default function ContactSection({ lang, onOpenBookingWithBranch }) {
       <div className="section-container">
         
         {/* ================================================================= */}
-        {/* BRANCHES SHOWCASE (EXACTLY 2 BRANCHES)                            */}
+        {/* BRANCH SHOWCASE (NEW CAIRO - PLATINUM CLUB)                      */}
         {/* ================================================================= */}
         <div className="branches-showcase-wrapper" id="branches">
           <div className="section-header-center">
             <div className="section-eyebrow">
               <MapPin size={16} className="text-emerald" />
-              <span>{isAr ? 'مواقع عيادات فايبرز' : 'Our Clinic Locations'}</span>
+              <span>{isAr ? 'مقر عيادة فايبرز' : 'Our Clinic Location'}</span>
             </div>
             <h2 className="section-title">
-              {isAr ? 'فرعان مجهزان بالكامل في القاهرة' : 'Two Dedicated Branches in Cairo'}
+              {isAr ? 'مقرنا الرئيسي في التجمع الخامس' : 'Our Flagship Clinic in New Cairo'}
             </h2>
             <p className="section-subtitle">
               {isAr 
-                ? 'اختر الفرع الأقرب إليك في التجمع الخامس (Platinum Club) أو الشروق (Popeyes Gym)؛ كلا المركزين مجهزان بأعلى المعايير الطبية وأحدث أجهزة التأهيل.'
-                : 'Choose your nearest branch in New Cairo (Platinum Club) or El Shorouk (Popeyes Gym). Both centers feature elite equipment and certified clinical specialists.'}
+                ? 'تفضل بزيارتنا في التجمع الخامس داخل Platinum Club (قطامية ريزيدنس)؛ مركزنا مجهز بأعلى المعايير الطبية العالمية وأحدث أجهزة العلاج الطبيعي والتأهيل الحركي.'
+                : 'Visit us in New Cairo inside Platinum Club (Katameya Residence). Our center features elite medical equipment, advanced recovery technology, and certified clinical specialists.'}
             </p>
           </div>
 

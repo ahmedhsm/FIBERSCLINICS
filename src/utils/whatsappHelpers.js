@@ -61,8 +61,8 @@ export function generateServiceDirectLink(serviceTitle, lang = 'ar') {
   const targetPhone = getWhatsAppPhone(clinicData.info.whatsappNumber);
 
   const message = lang === 'ar'
-    ? `مرحباً عيادات FIBERS، أرغب في الاستفسار وحجز جلسة: (${serviceTitle}). أرجو تزويدي بالمواعيد المتاحة بفرعي التجمع الخامس أو الشروق.`
-    : `Hello FIBERS Clinic, I'd like to book a session for: (${serviceTitle}). Please let me know available slots at New Cairo or El Shorouk.`;
+    ? `مرحباً عيادات FIBERS، أرغب في الاستفسار وحجز جلسة: (${serviceTitle}). أرجو تزويدي بالمواعيد المتاحة بفرع التجمع الخامس (Platinum Club).`
+    : `Hello FIBERS Clinic, I'd like to book a session for: (${serviceTitle}). Please let me know available slots at New Cairo branch (Platinum Club).`;
 
   return `https://wa.me/${targetPhone}?text=${encodeURIComponent(message)}`;
 }

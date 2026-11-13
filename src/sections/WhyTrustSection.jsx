@@ -92,8 +92,8 @@ export default function WhyTrustSection({ lang = 'ar', onOpenBooking }) {
               <MapPin size={16} className="text-blue" />
               <span>
                 {isAr 
-                  ? 'متاحون لخدمتك في فرعينا: التجمع الخامس (Platinum Club) وشروق سيتي (Popeyes Gym)' 
-                  : 'Serving you across 2 Cairo branches: New Cairo (Platinum Club) & El Shorouk (Popeyes Gym)'}
+                  ? 'متاحون لخدمتك في مقرنا الرئيسي: التجمع الخامس داخل Platinum Club (أمام ملاعب البادل)' 
+                  : 'Serving you at our flagship clinic: New Cairo inside Platinum Club (opp. Padel Courts)'}
               </span>
             </div>
 

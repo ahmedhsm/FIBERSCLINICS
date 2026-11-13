@@ -36,8 +36,8 @@ export default function RecoveryBar({ lang = 'ar', onOpenBooking }) {
             </h4>
             <p className="recovery-bar-sub">
               {isAr 
-                ? 'احجز جلستك في فرعينا: التجمع الخامس (Platinum Club) أو الشروق (Popeyes Gym)' 
-                : 'Book a session at any of our 2 Cairo branches (New Cairo & El Shorouk)'}
+                ? 'احجز جلستك في مقرنا الرئيسي: التجمع الخامس (Platinum Club - أمام ملاعب البادل)' 
+                : 'Book your session at our flagship clinic: New Cairo (Platinum Club, opp. Padel Courts)'}
             </p>
           </div>
         </div>

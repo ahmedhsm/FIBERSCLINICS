@@ -62,12 +62,12 @@ export default function HeroSection({ lang, onOpenBooking }) {
           {isAr ? (
             <>
               خبرة متقدمة ورعاية فردية دقيقة في عيادات <strong>FIBERS</strong> للعلاج الطبيعي والتأهيل الرياضي — حيث تعافيك وأداؤك الحركي أولويتنا القصوى.
-              أكثر من <strong>1,500 حالة تعافي ناجحة</strong> في فرعينا بالتجمع الخامس ومدينة الشروق.
+              أكثر من <strong>1,500 حالة تعافي ناجحة</strong> في مقرنا بالتجمع الخامس (Platinum Club).
             </>
           ) : (
             <>
               Experience lasting relief, athletic precision, and personalized care at <strong>FIBERS</strong> physiotherapy clinic — where your recovery is our priority.
-              Backed by <strong>1,500+ proven recoveries</strong> across our 2 Cairo clinics in New Cairo and El Shorouk.
+              Backed by <strong>1,500+ proven recoveries</strong> at our flagship clinic in New Cairo (Platinum Club).
             </>
           )}
         </p>
@@ -96,8 +96,8 @@ export default function HeroSection({ lang, onOpenBooking }) {
           <MapPin size={16} className="text-emerald" />
           <span>
             {isAr 
-              ? 'فرعان مجهزان بالكامل: فرع التجمع الخامس (Platinum Club) • فرع الشروق (Popeyes Gym)' 
-              : 'Two Fully Equipped Locations: New Cairo (Platinum Club) • El Shorouk (Popeyes Gym)'}
+              ? 'مقر العيادة: التجمع الخامس - داخل Platinum Club (أمام ملاعب البادل مباشرة)' 
+              : 'Clinic Location: New Cairo - Inside Platinum Club (Directly opp. Padel Courts)'}
           </span>
         </div>
 

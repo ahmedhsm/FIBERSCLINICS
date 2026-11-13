@@ -7,7 +7,7 @@ export const clinicData = {
     sloganEn: "Rebuilding strength, restoring mobility, and returning athletes to peak performance.",
     whatsappNumber: "201129332296",
     phoneDisplay: "+201129332296",
-    branchesCount: 2,
+    branchesCount: 1,
     emergencyHotline: "+201129332296",
     socials: {
       instagram: "https://www.instagram.com/fibers.physioclinic?obrf=amk4bWZqOXM2YmQ=",
@@ -15,7 +15,7 @@ export const clinicData = {
     }
   },
 
-  // EXACTLY TWO BRANCHES
+  // CLINIC BRANCH (NEW CAIRO - PLATINUM CLUB)
   branches: [
     {
       id: "new-cairo",
@@ -33,23 +33,6 @@ export const clinicData = {
       mapUrl: "https://maps.app.goo.gl/Xst3EeP8KLiw1fSM8?g_st=ic",
       badgeAr: "مجهز بأحدث أجهزة الريكفري والتأهيل الرياضي",
       badgeEn: "Equipped with advanced sports recovery & rehab"
-    },
-    {
-      id: "shorouk",
-      nameAr: "فرع مدينة الشروق (Popeyes Gym)",
-      nameEn: "El Shorouk Branch (Popeyes Gym)",
-      cityAr: "مدينة الشروق، القاهرة",
-      cityEn: "El Shorouk City, Cairo",
-      addressAr: "داخل Popeyes Gym - بجانب سعودي ماركت، مدينة الشروق",
-      addressEn: "Inside Popeyes Gym, next to Seoudi Market, El Shorouk City",
-      landmarkAr: "داخل Popeyes Gym - بجوار سعودي ماركت",
-      landmarkEn: "Inside Popeyes Gym - Next to Seoudi Market",
-      hoursAr: "السبت - الخميس: 2:00 م - 11:00 م ",
-      hoursEn: "Sat - Thu: 2:00 PM - 11:00 PM ",
-      phone: "01129332296",
-      mapUrl: "https://maps.app.goo.gl/7MtSWFg4sXdZXDFc6?g_st=ipc",
-      badgeAr: "مركز متكامل للإصابات الرياضية والاستشفاء",
-      badgeEn: "Complete sports medicine & recovery center"
     }
   ],
 
@@ -188,8 +171,8 @@ export const clinicData = {
       nameEn: "Dr. Yousef ehab salah",
       titleAr: "أخصائي العلاج الطبيعي وإصابات الملاعب",
       titleEn: "Specialist on sports injuries and rehabilitation",
-      branchAr: "فرع التجمع الخامس & الشروق",
-      branchEn: "New Cairo & El Shorouk Branches"
+      branchAr: "فرع التجمع الخامس (Platinum Club)",
+      branchEn: "New Cairo Branch (Platinum Club)"
     },
     {
       nameAr: "د. شهد ايهاب مشعل",
@@ -204,7 +187,7 @@ export const clinicData = {
 
   stats: [
     { value: "1,500+", labelAr: "رياضي ومريض تم علاجهم", labelEn: "Patients & Athletes Treated" },
-    { value: "2", labelAr: "فرعان مجهزان (التجمع والشروق)", labelEn: "Branches (New Cairo & El Shorouk)" },
+    { value: "1", labelAr: "مقر رئيسي متكامل (Platinum Club)", labelEn: "Flagship Clinic (Platinum Club)" },
     { value: "98%", labelAr: "نسبة الرضا والتعافي التام", labelEn: "Recovery & Satisfaction Rate" },
     { value: "15+", labelAr: "طبيب ومعالج معتمد دولياً", labelEn: "Specialized Physical Therapists" }
   ],
@@ -235,10 +218,10 @@ export const clinicData = {
       aEn: "Upon submitting your pre-filled message, our clinic coordinator will reply within minutes to confirm the slot and send exact branch directions."
     },
     {
-      qAr: "ما هو الفرق بين فرع التجمع الخامس وفرع الشروق؟",
-      qEn: "What is the difference between New Cairo and El Shorouk branches?",
-      aAr: "كلا الفرعين مجهزان بأعلى مستوى بنفس الأجهزة الطبية وبروتوكولات التأهيل العالمية، ويمكنك اختيار الفرع الأقرب والأنسب لك.",
-      aEn: "Both branches offer identical medical standards, certified doctors, and elite equipment. Choose the location most convenient for you."
+      qAr: "أين يقع مقر عيادة فايبرز؟",
+      qEn: "Where is FIBERS Clinic located?",
+      aAr: "تقع عيادتنا في التجمع الخامس داخل Platinum Club (قطامية ريزيدنس) مباشرة أمام ملاعب البادل، مجهزة بأحدث أجهزة الاستشفاء والتأهيل الرياضي.",
+      aEn: "Our clinic is located in New Cairo inside Platinum Club (Katameya Residence), directly in front of the Padel courts, fully equipped with advanced recovery technology."
     }
   ]
 };

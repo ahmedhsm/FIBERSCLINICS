@@ -36,8 +36,8 @@ export default function Footer({ lang, onOpenBooking }) {
             />
             <p className="footer-bio">
               {isAr 
-                ? 'عيادات فايبرز التخصصية للعلاج الطبيعي، إصابات الملاعب، والتأهيل الحركي المتقدم. فرعان رئيسيان مجهزان بأعلى المعايير العالمية في التجمع الخامس والشروق.'
-                : 'FIBERS Specialized Physical Therapy & Sports Performance Clinic. Evidence-based rehabilitation, sports medicine, and elite recovery across our 2 Cairo clinics in New Cairo and El Shorouk.'}
+                ? 'عيادات فايبرز التخصصية للعلاج الطبيعي، إصابات الملاعب، والتأهيل الحركي المتقدم. مقرنا الرئيسي مجهز بأعلى المعايير العالمية في التجمع الخامس (Platinum Club).'
+                : 'FIBERS Specialized Physical Therapy & Sports Performance Clinic. Evidence-based rehabilitation, sports medicine, and elite recovery at our flagship clinic in New Cairo (Platinum Club).'}
             </p>
 
             <div className="footer-cert-badge">
@@ -77,10 +77,10 @@ export default function Footer({ lang, onOpenBooking }) {
             </div>
           </div>
 
-          {/* Col 2: The Two Branches */}
+          {/* Col 2: Clinic Location */}
           <div className="footer-col footer-col-branches">
             <h4 className="footer-col-title">
-              {isAr ? 'فروعنا (فرعان فقط)' : 'Our 2 Branches'}
+              {isAr ? 'مقر العيادة' : 'Our Location'}
             </h4>
             <div className="footer-branches-list">
               {clinicData.branches.map((b) => (

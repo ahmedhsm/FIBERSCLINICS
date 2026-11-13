@@ -105,7 +105,7 @@ export default function WhatsAppCTA({
                       : `STEP ${step} OF 4`}
                   </span>
                   <h3 className="modal-step-title">
-                    {step === 1 && (isAr ? 'اختر الفرع الأقرب لك' : 'Select Clinic Branch')}
+                    {step === 1 && (isAr ? 'مقر العيادة (التجمع الخامس)' : 'Clinic Location (New Cairo)')}
                     {step === 2 && (isAr ? 'اختر نوع الجلسة العلاجية' : 'Choose Service')}
                     {step === 3 && (isAr ? 'حدد التاريخ والموعد المفضل' : 'Pick Date & Time Slot')}
                     {step === 4 && (isAr ? 'جاهز للحجز (تأكيد الواتساب)' : 'Ready to Book')}
@@ -133,13 +133,13 @@ export default function WhatsAppCTA({
 
             {/* Modal Body: Dynamic by Step */}
             <div className="modal-body-content">
-              {/* STEP 1: CHOOSE BRANCH (EXACTLY 2 BRANCHES) */}
+              {/* STEP 1: CHOOSE BRANCH (SINGLE CLINIC LOCATION) */}
               {step === 1 && (
                 <div className="step-content step-branch">
                   <p className="step-desc">
                     {isAr 
-                      ? 'اختر أحد فرعي فايبرز المجهزين بأحدث أجهزة التأهيل والاستشفاء:' 
-                      : 'Choose one of our two specialized Cairo branches:'}
+                      ? 'مقر عيادة فايبرز المجهز بالكامل بأحدث أجهزة التأهيل والاستشفاء الرياضي:' 
+                      : 'Our fully equipped clinic location for sports recovery & physical therapy:'}
                   </p>
 
                   <div className="branch-selection-grid">
@@ -278,7 +278,7 @@ export default function WhatsAppCTA({
                         <MapPin size={16} />
                       </div>
                       <div className="review-cell-info">
-                        <span className="review-cell-label">{isAr ? 'الفرع' : 'BRANCH'}</span>
+                        <span className="review-cell-label">{isAr ? 'مقر العيادة' : 'LOCATION'}</span>
                         <strong className="review-cell-val">
                           {isAr ? selectedBranchObj.nameAr : selectedBranchObj.nameEn}
                         </strong>
