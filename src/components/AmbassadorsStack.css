@@ -1,0 +1,456 @@
+/* ==========================================================================
+   AmbassadorsStack.css - 3D Card Stack Section
+   Dedicated Stylesheet ensuring 100% reliable layout & mobile-first deck stacking
+   ========================================================================== */
+
+.ambassadors-section {
+  position: relative;
+  width: 100%;
+  padding: 80px 20px 90px;
+  background-color: var(--bg-main, #070b14);
+  color: #ffffff;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.ambassadors-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Background Atmospheric Glows */
+.ambassadors-glow-bg {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Section Header (reusing clinic standards) */
+.ambassadors-header {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 30px;
+}
+
+.ambassadors-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(0, 102, 255, 0.12);
+  border: 1px solid rgba(0, 102, 255, 0.35);
+  color: #3b82f6;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 14px;
+}
+
+.ambassadors-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  line-height: 1.25;
+  color: #ffffff;
+  margin: 0 0 12px;
+}
+
+.ambassadors-title-accent {
+  color: #0066ff;
+  text-shadow: 0 0 25px rgba(0, 102, 255, 0.4);
+}
+
+.ambassadors-subtitle {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Instruction Hint */
+.ambassadors-hint-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: rgba(17, 26, 46, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.hint-icon {
+  color: #0066ff;
+}
+
+/* ==========================================================================
+   Enforced Card Stacking Viewport (Single Deck)
+   ========================================================================== */
+.ambassadors-deck-container {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  height: 440px;
+  margin: 0 auto;
+  perspective: 1200px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Base Card (All cards stack directly on top of each other via position: absolute) */
+.ambassador-card {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #0c1322;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.75), 0 5px 15px rgba(0, 0, 0, 0.5);
+  transform-origin: center bottom;
+  box-sizing: border-box;
+}
+
+/* Top Card Specifics */
+.top-card {
+  cursor: grab;
+  touch-action: none;
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.85), 0 0 30px rgba(0, 102, 255, 0.15);
+}
+
+.top-card:active {
+  cursor: grabbing;
+}
+
+/* Stacked Cards (Behind) */
+.stacked-card {
+  pointer-events: none;
+}
+
+/* Card Image */
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+  background-color: #070b14;
+}
+
+/* Top Badges (Inside Card) */
+.card-top-badges {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.card-honor-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 9999px;
+  background: rgba(7, 11, 20, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.card-verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 9px;
+  border-radius: 8px;
+  background: rgba(0, 102, 255, 0.9);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 10px rgba(0, 102, 255, 0.4);
+}
+
+/* Dark Gradient Overlay for bottom text readability */
+.card-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(7, 11, 20, 0.98) 0%,
+    rgba(7, 11, 20, 0.88) 22%,
+    rgba(7, 11, 20, 0.5) 45%,
+    rgba(7, 11, 20, 0.1) 68%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* Bottom Information Overlay Inside the Card */
+.card-bottom-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 18px 18px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.card-name-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.card-client-name {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.card-order-tag {
+  font-size: 0.72rem;
+  font-family: monospace;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.card-client-role {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #38bdf8;
+  margin: 0 0 8px;
+  line-height: 1.3;
+}
+
+.card-client-quote {
+  font-size: 0.75rem;
+  color: #cbd5e1;
+  line-height: 1.45;
+  margin: 0 0 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.card-footer-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.card-verified-tag {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #22c55e;
+}
+
+.card-sport-tag {
+  color: #94a3b8;
+  font-size: 0.7rem;
+}
+
+/* Directional Swipe Overlays (Appears while dragging) */
+.swipe-cue {
+  position: absolute;
+  top: 50%;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  z-index: 30;
+  pointer-events: none;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.swipe-cue-next {
+  right: 20px;
+  transform: translateY(-50%) rotate(12deg);
+  background: rgba(0, 102, 255, 0.95);
+  color: #ffffff;
+}
+
+.swipe-cue-prev {
+  left: 20px;
+  transform: translateY(-50%) rotate(-12deg);
+  background: rgba(34, 197, 94, 0.95);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   Horizontal Controls Bar (< prev, dots, > next, reset)
+   ========================================================================== */
+.ambassadors-controls-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+  width: 100%;
+}
+
+.btn-deck-control {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #111a2e;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.btn-deck-control:hover {
+  background-color: #182642;
+  border-color: rgba(0, 102, 255, 0.5);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 102, 255, 0.25);
+}
+
+.btn-deck-control:active {
+  transform: scale(0.94);
+}
+
+.btn-deck-primary {
+  background-color: #0066ff;
+  border-color: #0066ff;
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(0, 102, 255, 0.35);
+}
+
+.btn-deck-primary:hover {
+  background-color: #1a75ff;
+  border-color: #1a75ff;
+}
+
+/* Deck Progress Dots */
+.deck-dots-strip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(17, 26, 46, 0.9);
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.deck-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background-color: #334155;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.deck-dot.active {
+  width: 20px;
+  background-color: #0066ff;
+  box-shadow: 0 0 10px rgba(0, 102, 255, 0.6);
+}
+
+/* Bottom CTA button */
+.ambassadors-booking-cta {
+  margin-top: 24px;
+}
+
+.btn-deck-book {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0066ff 0%, #004ecc 100%);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 102, 255, 0.35);
+  transition: all 0.25s ease;
+}
+
+.btn-deck-book:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 102, 255, 0.5);
+  background: linear-gradient(135deg, #1a75ff 0%, #0066ff 100%);
+}
+
+.btn-deck-book:active {
+  transform: scale(0.98);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+  .ambassadors-section {
+    padding: 60px 16px 70px;
+  }
+  .ambassadors-title {
+    font-size: 1.65rem;
+  }
+  .ambassadors-subtitle {
+    font-size: 0.85rem;
+  }
+  .ambassadors-deck-container {
+    max-width: 310px;
+    height: 420px;
+  }
+  .card-client-name {
+    font-size: 1.2rem;
+  }
+  .card-client-role {
+    font-size: 0.76rem;
+  }
+}
