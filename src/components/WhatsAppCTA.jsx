@@ -42,6 +42,7 @@ export default function WhatsAppCTA({
   const [patientName, setPatientName] = useState('');
   const [patientPhone, setPatientPhone] = useState('');
   const [notes, setNotes] = useState('');
+  const [errors, setErrors] = useState({});
 
   // Synchronize when a branch is pre-selected
   useEffect(() => {
@@ -62,12 +63,45 @@ export default function WhatsAppCTA({
   // Reset steps when closed
   const handleClose = () => {
     setIsOpen(false);
+    setErrors({});
     onClearPreSelectedService();
     // Keep data for user convenience if they re-open
   };
 
   const selectedBranchObj = clinicData.branches.find(b => b.id === branch) || clinicData.branches[0];
   const selectedServiceObj = clinicData.services.find(s => s.id === service) || clinicData.services[0];
+
+  // Validate required patient fields on step 3
+  const validateStep3 = () => {
+    const newErrors = {};
+    const trimmedName = patientName.trim();
+    const trimmedPhone = patientPhone.trim();
+
+    if (!trimmedName) {
+      newErrors.patientName = isAr ? 'اسم المريض مطلوب للمتابعة' : 'Patient name is required';
+    } else if (trimmedName.length < 2) {
+      newErrors.patientName = isAr ? 'يرجى كتابة الاسم بشكل صحيح' : 'Please enter a valid name';
+    }
+
+    if (!trimmedPhone) {
+      newErrors.patientPhone = isAr ? 'رقم الهاتف مطلوب لتأكيد الحجز' : 'Phone number is required';
+    } else if (trimmedPhone.replace(/[\s\-\+\(\)]/g, '').length < 8) {
+      newErrors.patientPhone = isAr ? 'يرجى كتابة رقم هاتف صحيح' : 'Please enter a valid phone number';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleNext = () => {
+    if (step === 3) {
+      if (!validateStep3()) {
+        return;
+      }
+    }
+    setErrors({});
+    setStep(step + 1);
+  };
 
   // Final WhatsApp confirmation URL
   const confirmWhatsAppUrl = generateWhatsAppReservationLink({
@@ -235,33 +269,55 @@ export default function WhatsAppCTA({
                     </div>
                   </div>
 
-                  {/* Patient Info */}
+                  {/* Patient Info (Required Name & Phone) */}
                   <div className="patient-inputs-row">
                     <div className="form-group">
                       <label className="form-label">
                         <User size={16} />
-                        <span>{isAr ? 'اسم المريض (اختياري):' : 'Patient Name (Optional):'}</span>
+                        <span>{isAr ? 'اسم المريض:' : 'Patient Name:'}</span>
+                        <span className="required-star">*</span>
                       </label>
                       <input 
                         type="text"
                         placeholder={isAr ? 'مثال: أحمد مصطفى' : 'e.g. Ahmed Mostafa'}
                         value={patientName}
-                        onChange={(e) => setPatientName(e.target.value)}
-                        className="form-input"
+                        onChange={(e) => {
+                          setPatientName(e.target.value);
+                          if (errors.patientName) {
+                            setErrors((prev) => ({ ...prev, patientName: null }));
+                          }
+                        }}
+                        className={`form-input ${errors.patientName ? 'input-error' : ''}`}
+                        required
+                        aria-required="true"
                       />
+                      {errors.patientName && (
+                        <span className="field-error-msg">{errors.patientName}</span>
+                      )}
                     </div>
                     <div className="form-group">
                       <label className="form-label">
                         <Phone size={16} />
                         <span>{isAr ? 'رقم الهاتف:' : 'Phone Number:'}</span>
+                        <span className="required-star">*</span>
                       </label>
                       <input 
                         type="tel"
-                        placeholder="010XXXXXXXX"
+                        placeholder={isAr ? 'مثال: 010XXXXXXXX' : 'e.g. 010XXXXXXXX'}
                         value={patientPhone}
-                        onChange={(e) => setPatientPhone(e.target.value)}
-                        className="form-input"
+                        onChange={(e) => {
+                          setPatientPhone(e.target.value);
+                          if (errors.patientPhone) {
+                            setErrors((prev) => ({ ...prev, patientPhone: null }));
+                          }
+                        }}
+                        className={`form-input ${errors.patientPhone ? 'input-error' : ''}`}
+                        required
+                        aria-required="true"
                       />
+                      {errors.patientPhone && (
+                        <span className="field-error-msg">{errors.patientPhone}</span>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -363,6 +419,13 @@ export default function WhatsAppCTA({
                     href={confirmWhatsAppUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={(e) => {
+                      if (!patientName.trim() || !patientPhone.trim()) {
+                        e.preventDefault();
+                        setStep(3);
+                        validateStep3();
+                      }
+                    }}
                     className="btn-confirm-whatsapp"
                   >
                     <MessageCircle size={20} className="btn-wa-icon" />
@@ -372,7 +435,10 @@ export default function WhatsAppCTA({
                   {/* Back / Edit Link */}
                   <button 
                     type="button"
-                    onClick={() => setStep(3)}
+                    onClick={() => {
+                      setErrors({});
+                      setStep(3);
+                    }}
                     className="btn-review-back"
                   >
                     <PrevArrow size={14} />
@@ -387,7 +453,10 @@ export default function WhatsAppCTA({
               <div className="modal-footer-controls">
                 {step > 1 && (
                   <button 
-                    onClick={() => setStep(step - 1)}
+                    onClick={() => {
+                      setErrors({});
+                      setStep(step - 1);
+                    }}
                     className="btn-modal-prev"
                   >
                     <PrevArrow size={18} />
@@ -396,7 +465,7 @@ export default function WhatsAppCTA({
                 )}
 
                 <button 
-                  onClick={() => setStep(step + 1)}
+                  onClick={handleNext}
                   className="btn-modal-next"
                 >
                   <span>{isAr ? 'المتابعة' : 'Next'}</span>

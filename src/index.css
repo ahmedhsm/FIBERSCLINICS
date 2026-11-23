@@ -2060,6 +2060,26 @@ html[dir="rtl"] .floating-whatsapp-tooltip {
   box-shadow: 0 0 10px rgba(0, 102, 255, 0.25);
 }
 
+.required-star {
+  color: #ef4444;
+  margin-inline-start: 4px;
+  font-weight: 800;
+}
+
+.form-input.input-error {
+  border-color: #ef4444 !important;
+  background: rgba(239, 68, 68, 0.08) !important;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.25) !important;
+}
+
+.field-error-msg {
+  display: block;
+  font-size: 0.78rem;
+  color: #f87171;
+  font-weight: 700;
+  margin-top: 5px;
+}
+
 .time-slots-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
