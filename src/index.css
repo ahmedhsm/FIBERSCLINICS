@@ -3786,3 +3786,18 @@ html[dir="rtl"] .floating-whatsapp-tooltip {
     font-size: 0.9rem;
   }
 }
+
+/* ==========================================================================
+   Ambassadors 3D Card Stack Section
+   ========================================================================== */
+.ambassadors-stack-section {
+  position: relative;
+  background-color: var(--bg-main, #070b14);
+  padding: 80px 20px 90px;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+.perspective-1200 {
+  perspective: 1200px;
+}

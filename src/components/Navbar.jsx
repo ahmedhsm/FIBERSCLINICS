@@ -39,6 +39,7 @@ export default function Navbar({ lang, setLang, onOpenBooking }) {
     { href: '#about', labelAr: 'عن فايبرز', labelEn: 'About' },
     { href: '#philosophy', labelAr: 'فلسفتنا', labelEn: 'Philosophy' },
     { href: '#why-trust', labelAr: 'لماذا فايبرز؟', labelEn: 'Why FIBERS' },
+    { href: '#ambassadors', labelAr: 'أبطال فايبرز', labelEn: 'Ambassadors' },
     { href: '#services', labelAr: 'الخدمات العلاجية', labelEn: 'Services' },
     { href: '#spine-health', labelAr: 'سلسلة العمود الفقري', labelEn: 'Spine Health' },
     { href: '#branches', labelAr: 'مقر العيادة (التجمع)', labelEn: 'Location' },

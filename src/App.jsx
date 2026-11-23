@@ -6,6 +6,7 @@ import RecoveryBar from './components/RecoveryBar';
 import HeroSection from './sections/HeroSection';
 import BrandShowcaseSection from './sections/BrandShowcaseSection';
 import WhyTrustSection from './sections/WhyTrustSection';
+import AmbassadorsStack from './components/AmbassadorsStack';
 import ServicesSection from './sections/ServicesSection';
 import SpineHealthSection from './sections/SpineHealthSection';
 import ContactSection from './sections/ContactSection';
@@ -63,6 +64,11 @@ export default function App() {
           onOpenBooking={handleOpenBooking} 
         />
         
+        <AmbassadorsStack 
+          lang={lang} 
+          onOpenBooking={handleOpenBooking} 
+        />
+
         <ServicesSection 
           lang={lang} 
           onSelectService={handleSelectService} 
