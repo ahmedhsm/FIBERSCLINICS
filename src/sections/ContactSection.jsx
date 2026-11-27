@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
 import { generateWhatsAppReservationLink } from '../utils/whatsappHelpers';
+import { trackBookingClick } from '../utils/clarity';
 
 export default function ContactSection({ lang, onOpenBookingWithBranch }) {
   const isAr = lang === 'ar';
@@ -92,7 +93,10 @@ export default function ContactSection({ lang, onOpenBookingWithBranch }) {
                   {/* Branch Action Buttons */}
                   <div className="branch-card-actions">
                     <button
-                      onClick={() => onOpenBookingWithBranch(b.id)}
+                      onClick={() => {
+                        trackBookingClick();
+                        onOpenBookingWithBranch(b.id);
+                      }}
                       className="btn-branch-book"
                     >
                       <Calendar size={16} />
@@ -114,6 +118,7 @@ export default function ContactSection({ lang, onOpenBookingWithBranch }) {
                       href={branchWhatsAppUrl}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={trackBookingClick}
                       className="btn-branch-wa"
                       title={isAr ? 'تواصل مع الفرع عبر واتساب' : 'Chat with branch'}
                     >

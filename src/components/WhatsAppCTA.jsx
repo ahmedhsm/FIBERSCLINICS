@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
 import { generateWhatsAppReservationLink, formatDate } from '../utils/whatsappHelpers';
+import { trackBookingClick } from '../utils/clarity';
 import clinicLogoBadge from '../assets/logo.jpeg';
 
 export default function WhatsAppCTA({ 
@@ -424,7 +425,9 @@ export default function WhatsAppCTA({
                         e.preventDefault();
                         setStep(3);
                         validateStep3();
+                        return;
                       }
+                      trackBookingClick();
                     }}
                     className="btn-confirm-whatsapp"
                   >

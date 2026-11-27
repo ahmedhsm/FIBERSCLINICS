@@ -12,6 +12,7 @@ import {
   ChevronLeft
 } from 'lucide-react';
 import { generateServiceDirectLink } from '../utils/whatsappHelpers';
+import { trackBookingClick } from '../utils/clarity';
 
 const iconMap = {
   Activity,
@@ -71,7 +72,10 @@ export default function ServiceCard({ service, lang, onSelectService }) {
       <div className="service-card-actions">
         {/* Primary action: Open 4-step booking modal with service pre-selected */}
         <button 
-          onClick={() => onSelectService(service)}
+          onClick={() => {
+            trackBookingClick();
+            onSelectService(service);
+          }}
           className="btn-service-book"
           aria-label={isAr ? `احجز موعد ${service.titleAr}` : `Book ${service.titleEn}`}
         >
@@ -84,6 +88,7 @@ export default function ServiceCard({ service, lang, onSelectService }) {
           href={directWhatsAppUrl}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={trackBookingClick}
           className="btn-service-wa-direct"
           title={isAr ? 'حجز فوري عبر واتساب مباشرة' : 'Instant WhatsApp message'}
         >

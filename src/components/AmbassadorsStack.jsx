@@ -12,6 +12,7 @@ import {
   Award
 } from 'lucide-react';
 import './AmbassadorsStack.css';
+import { trackBookingClick } from '../utils/clarity';
 
 // Direct ES Module Imports to ensure 100% reliable bundling with no missing assets
 import karamGaberImg from '../assets/clients/karam-gaber.jpeg';
@@ -505,7 +506,10 @@ export default function AmbassadorsStack({
         {onOpenBooking && (
           <div className="ambassadors-booking-cta">
             <button
-              onClick={onOpenBooking}
+              onClick={() => {
+                trackBookingClick();
+                onOpenBooking();
+              }}
               type="button"
               className="btn-deck-book"
             >

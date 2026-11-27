@@ -9,6 +9,7 @@ import {
   CheckCircle2,
   CalendarCheck
 } from 'lucide-react';
+import { trackBookingClick } from '../utils/clarity';
 
 export default function BrandShowcaseSection({ lang = 'ar', onOpenBooking }) {
   const isAr = lang === 'ar';
@@ -85,7 +86,13 @@ export default function BrandShowcaseSection({ lang = 'ar', onOpenBooking }) {
               </p>
             </div>
             <div className="poster-card-action">
-              <button onClick={onOpenBooking} className="btn-poster-action">
+              <button 
+                onClick={() => {
+                  trackBookingClick();
+                  onOpenBooking();
+                }} 
+                className="btn-poster-action"
+              >
                 <span>{isAr ? 'احجز جلستك الآن' : 'BOOK YOUR SESSION'}</span>
                 <NextArrow size={18} />
               </button>

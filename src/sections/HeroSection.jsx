@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
 import heroBgImg from '../assets/hero-bg.jpg';
+import { trackBookingClick } from '../utils/clarity';
 
 export default function HeroSection({ lang, onOpenBooking }) {
   const isAr = lang === 'ar';
@@ -75,7 +76,10 @@ export default function HeroSection({ lang, onOpenBooking }) {
         {/* CTA Actions */}
         <div className="hero-cta-group animate-slide-up-delay-2">
           <button 
-            onClick={onOpenBooking} 
+            onClick={() => {
+              trackBookingClick();
+              onOpenBooking();
+            }} 
             className="btn-hero-primary"
           >
             <CalendarCheck size={20} />

@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
 import { generateWhatsAppReservationLink } from '../utils/whatsappHelpers';
+import { trackBookingClick } from '../utils/clarity';
 import fibersLogo from '../assets/FIBERS_Wordmark_White.png';
 import { InstagramIcon, TikTokIcon } from './SocialIcons';
 
@@ -146,6 +147,7 @@ export default function Footer({ lang, onOpenBooking }) {
                 href={quickWhatsApp}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={trackBookingClick}
                 className="btn-footer-wa"
               >
                 <MessageCircle size={18} />
@@ -186,7 +188,13 @@ export default function Footer({ lang, onOpenBooking }) {
           </div>
 
           <div className="footer-bottom-links">
-            <button onClick={onOpenBooking} className="footer-quick-book-btn">
+            <button 
+              onClick={() => {
+                trackBookingClick();
+                onOpenBooking();
+              }} 
+              className="footer-quick-book-btn"
+            >
               {isAr ? 'احجز موعدك الآن' : 'Book an Appointment'}
             </button>
           </div>

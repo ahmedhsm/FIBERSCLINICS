@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CalendarCheck, X, Sparkles } from 'lucide-react';
+import { trackBookingClick } from '../utils/clarity';
 
 export default function RecoveryBar({ lang = 'ar', onOpenBooking }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -44,7 +45,10 @@ export default function RecoveryBar({ lang = 'ar', onOpenBooking }) {
 
         <div className="recovery-bar-action-group">
           <button 
-            onClick={onOpenBooking} 
+            onClick={() => {
+              trackBookingClick();
+              onOpenBooking();
+            }} 
             className="btn-recovery-book"
           >
             <CalendarCheck size={18} />

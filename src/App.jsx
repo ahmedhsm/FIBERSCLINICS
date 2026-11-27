@@ -10,6 +10,7 @@ import AmbassadorsStack from './components/AmbassadorsStack';
 import ServicesSection from './sections/ServicesSection';
 import SpineHealthSection from './sections/SpineHealthSection';
 import ContactSection from './sections/ContactSection';
+import { trackBookingClick } from './utils/clarity';
 
 export default function App() {
   const [lang, setLang] = useState('ar');
@@ -24,16 +25,19 @@ export default function App() {
   }, [lang]);
 
   const handleOpenBooking = () => {
+    trackBookingClick();
     setPreSelectedBranch(null);
     setIsBookingOpen(true);
   };
 
   const handleSelectService = (service) => {
+    trackBookingClick();
     setPreSelectedService(service);
     setIsBookingOpen(true);
   };
 
   const handleOpenBookingWithBranch = (branchId) => {
+    trackBookingClick();
     setPreSelectedBranch(branchId);
     setIsBookingOpen(true);
   };

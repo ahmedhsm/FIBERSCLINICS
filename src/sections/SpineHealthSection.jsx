@@ -10,6 +10,7 @@ import {
   Sparkles
 } from 'lucide-react';
 import { generateDoctorInquiryLink } from '../utils/whatsappHelpers';
+import { trackBookingClick } from '../utils/clarity';
 import spineBgImg from '../assets/spine-bg.jpg';
 
 export default function SpineHealthSection({ lang = 'ar', onOpenBooking }) {
@@ -104,7 +105,13 @@ export default function SpineHealthSection({ lang = 'ar', onOpenBooking }) {
           </div>
 
           <div className="spine-cta-actions">
-            <button onClick={onOpenBooking} className="btn-spine-book">
+            <button 
+              onClick={() => {
+                trackBookingClick();
+                onOpenBooking();
+              }} 
+              className="btn-spine-book"
+            >
               <CalendarCheck size={18} />
               <span>{isAr ? 'احجز تقييم العمود الفقري' : 'Book Spine Evaluation'}</span>
             </button>
@@ -112,6 +119,7 @@ export default function SpineHealthSection({ lang = 'ar', onOpenBooking }) {
               href={doctorConsultUrl} 
               target="_blank" 
               rel="noopener noreferrer" 
+              onClick={trackBookingClick}
               className="btn-spine-inquire"
             >
               <span>{isAr ? 'استشر الطبيب مجاناً' : 'Ask Specialist'}</span>

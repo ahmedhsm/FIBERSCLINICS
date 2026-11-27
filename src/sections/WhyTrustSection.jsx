@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
 import { generateDoctorInquiryLink } from '../utils/whatsappHelpers';
+import { trackBookingClick } from '../utils/clarity';
 
 export default function WhyTrustSection({ lang = 'ar', onOpenBooking }) {
   const isAr = lang === 'ar';
@@ -98,7 +99,13 @@ export default function WhyTrustSection({ lang = 'ar', onOpenBooking }) {
             </div>
 
             <div className="trust-action-btns">
-              <button onClick={onOpenBooking} className="btn-trust-primary">
+              <button 
+                onClick={() => {
+                  trackBookingClick();
+                  onOpenBooking();
+                }} 
+                className="btn-trust-primary"
+              >
                 <CalendarCheck size={18} />
                 <span>{isAr ? 'احجز جلستك الآن' : 'Book Your Session'}</span>
               </button>
@@ -107,6 +114,7 @@ export default function WhyTrustSection({ lang = 'ar', onOpenBooking }) {
                 href={doctorConsultUrl} 
                 target="_blank" 
                 rel="noopener noreferrer" 
+                onClick={trackBookingClick}
                 className="btn-trust-secondary"
               >
                 <span>{isAr ? 'استشارة طبية عبر واتساب' : 'Ask the Doctor'}</span>

@@ -10,6 +10,7 @@ import {
 import { clinicData } from '../data/clinicData';
 import ServiceCard from '../components/ServiceCard';
 import { generateDoctorInquiryLink } from '../utils/whatsappHelpers';
+import { trackBookingClick } from '../utils/clarity';
 
 export default function ServicesSection({ lang, onSelectService }) {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -101,6 +102,7 @@ export default function ServicesSection({ lang, onSelectService }) {
             href={doctorConsultUrl} 
             target="_blank" 
             rel="noopener noreferrer"
+            onClick={trackBookingClick}
             className="btn-help-doctor"
           >
             <MessageCircle size={18} />

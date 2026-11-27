@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
 import { generateDoctorInquiryLink } from '../utils/whatsappHelpers';
+import { trackBookingClick } from '../utils/clarity';
 import fibersLogo from '../assets/FIBERS_Wordmark_White.png';
 import { InstagramIcon, TikTokIcon } from './SocialIcons';
 
@@ -118,6 +119,7 @@ export default function Navbar({ lang, setLang, onOpenBooking }) {
             href={doctorWhatsAppUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={trackBookingClick}
             className="btn-ask-doctor"
           >
             <Stethoscope size={16} />
@@ -126,7 +128,10 @@ export default function Navbar({ lang, setLang, onOpenBooking }) {
 
           {/* Book Now Emerald CTA */}
           <button 
-            onClick={onOpenBooking}
+            onClick={() => {
+              trackBookingClick();
+              onOpenBooking();
+            }}
             className="btn-navbar-book"
           >
             <CalendarCheck size={17} />
@@ -164,6 +169,7 @@ export default function Navbar({ lang, setLang, onOpenBooking }) {
           <div className="mobile-drawer-actions">
             <button 
               onClick={() => {
+                trackBookingClick();
                 handleNavClick();
                 onOpenBooking();
               }}
@@ -177,7 +183,10 @@ export default function Navbar({ lang, setLang, onOpenBooking }) {
               href={doctorWhatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={handleNavClick}
+              onClick={() => {
+                trackBookingClick();
+                handleNavClick();
+              }}
               className="btn-mobile-doctor"
             >
               <Stethoscope size={18} />
